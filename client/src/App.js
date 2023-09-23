@@ -1,8 +1,14 @@
+import Layout from "./Layout";
+
 function App() {
   return (
-    <div >
-      Shopingify app
-    </div>
+    <Layout>
+      <div className="bg-[#FAFAFE] flex flex-1 h-screen">
+        <h1 >Shoppingfy App</h1>
+      </div>
+
+    </Layout>
+
   );
 }
 
