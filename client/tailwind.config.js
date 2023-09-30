@@ -11,7 +11,11 @@ module.exports = {
       current: 'currentColor',
       'highlight': '#F9A109',
       'pageBackground': '#FAFAFE',
-      'iconGray': '#C1C1C4'
+      'iconGray': '#C1C1C4',
+      'iconBlack': '#34333A',
+      'placeholderGray': '#BDBDBD',
+      'bgOrange': '#F9A109',
+      'bgLightOrange': '#FFF0DE'
     },
     extend: {
       fontFamily: {
