@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import Item from '../../components/Item'
 import { MdSearch } from "react-icons/md";
-import { ReactComponent as BottleIcon } from "../../assets/bottle.svg";
+import ShoppingList from '../../components/ShoppingList';
+import AddItem from '../../components/AddItem';
 
 const ItemsPage = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -64,21 +65,9 @@ const ItemsPage = () => {
                     {renderedItems}
                 </div>
             </div>
-            <div className='bg-bgLightOrange max-w-[390px] flex flex-col basis-1/3 pt-11 overflow-y-scroll '>
-                <div className='flex flex-col flex-1 ps-11 pe-7 items-center ' >
-                    <div className='bg-[#80485B] flex flex-1 max-h-[130px] w-[310px] rounded-3xl px-7 relative py-4'>
-                        <BottleIcon className='absolute -top-[18px] left-2' />
-                        <div className='ml-auto flex flex-1 max-w-[160px] flex-col gap-2'>
-                            <span className='text-white text-base font-bold'>Didn’t find what you need?</span>
-                            <button className='bg-white text-iconBlack text-sm font-bold  py-[10px] h-10 w-[120px] rounded-xl'>Add item</button>
-                        </div>
-
-                    </div>
-                    <div></div>
-                </div>
-                <div className='bg-white flex-1 max-h-[130px]'>
-                    save button
-                </div>
+            <div className=' max-w-[390px] flex flex-col basis-1/3'>
+                {/* <ShoppingList shoppingList={{}} /> */}
+                <AddItem />
             </div>
         </div>
 
