@@ -3,7 +3,7 @@ import Input from '../Input'
 
 const AddItem = () => {
     return (
-        <div className='bg-white flex flex-1 py-9 px-4 flex-col gap-10'>
+        <div className='flex flex-1 py-9 px-4 flex-col gap-10 bg-white '>
             <div className=''>
                 <h1 className='text-2xl font-medium'>Add a new item</h1>
             </div>
