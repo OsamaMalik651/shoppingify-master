@@ -39,14 +39,12 @@ const ItemsPage = () => {
 
     return (
         <div className='bg-slate-700 flex flex-1 '>
-            <div className='flex flex-col gap-12 ps-20 pe-14 py-7 bg-pageBackground overflow-y-scroll'>
+            <div className='flex flex-1 flex-col gap-12 ps-20 pe-14 py-7 bg-pageBackground '>
                 {/* Heading Div */}
                 <div className='flex justify-between py-2'>
-                    {/* Heading Text */}
                     <div className='text-[26px] max-w-[450px] font-medium'>
                         <h1><span className='text-highlight'>Shoppingify</span> allows you take your shopping list wherever you go</h1>
                     </div>
-                    {/* Input Div */}
                     <div className='flex flex-1 items-start justify-end'>
                         <div className='bg-white flex flex-1 max-w-[276px] h-14 px-4 rounded-xl items-center shadow-md focus-within:border-2 border-bgOrange'>
                             <MdSearch className='w-6 h-6 text-iconBlack' />
@@ -60,12 +58,11 @@ const ItemsPage = () => {
                         </div>
                     </div>
                 </div>
-                {/* Items Div */}
                 <div className='flex flex-col flex-wrap gap-12'>
                     {renderedItems}
                 </div>
             </div>
-            <div className=' max-w-[390px] flex flex-col basis-1/3'>
+            <div className=' max-w-[390px] flex flex-col basis-1/3' >
                 {/* <ShoppingList shoppingList={{}} /> */}
                 <AddItem />
             </div>

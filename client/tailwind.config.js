@@ -14,6 +14,10 @@ module.exports = {
       placeholderGray: "#BDBDBD",
       bgOrange: "#F9A109",
       bgLightOrange: "#FFF0DE",
+      bgHoverGray: '#F2F2F2',
+      textGray: '#828282',
+      danger: '#EB5757',
+      info: '#56CCF2'
     },
     extend: {
       fontFamily: {
