@@ -6,6 +6,20 @@ import AddItem from '../../components/AddItem';
 
 const ItemsPage = () => {
     const [searchTerm, setSearchTerm] = useState('');
+    const [showAddItem, setShowAddItem] = useState(false);
+    const [showShoppingList, setShowShoppingList] = useState(true);
+    const [shoppingListEditMode, setShoppingListEditMode] = useState(false);
+
+    const handleShowAddItemComponent = () => {
+        setShowAddItem(!showAddItem);
+        setShowShoppingList(!showShoppingList)
+    }
+
+    const onItemAddClick = () => {
+        setShoppingListEditMode(true)
+        setShowShoppingList(true)
+        setShowAddItem(false)
+    }
 
     const items = [
         {
@@ -21,6 +35,9 @@ const ItemsPage = () => {
     const handleSearchTerm = (e) => {
         setSearchTerm(e.target.value);
     }
+    const handleShoppingListEditMode = (e) => {
+        setShoppingListEditMode(!shoppingListEditMode)
+    }
 
     const renderedItems = items.map((item) => {
         return (
@@ -29,7 +46,7 @@ const ItemsPage = () => {
                 <div className='flex flex-wrap gap-4 '>
                     {item.items.map((listItem,) => {
                         return (
-                            <Item key={listItem} name={listItem} />
+                            <Item key={listItem} name={listItem} onClick={onItemAddClick} />
                         )
                     })}
                 </div>
@@ -63,8 +80,14 @@ const ItemsPage = () => {
                 </div>
             </div>
             <div className=' max-w-[390px] flex flex-col basis-1/3' >
-                {/* <ShoppingList shoppingList={{}} /> */}
-                <AddItem />
+                {showShoppingList && <ShoppingList
+                    shoppingList={{}}
+                    onAddItemClick={handleShowAddItemComponent}
+                    shoppingListEditMode={shoppingListEditMode}
+                    handleShoppingListEditMode={handleShoppingListEditMode}
+
+                />}
+                {showAddItem && <AddItem onCancelButtonClick={handleShowAddItemComponent} />}
             </div>
         </div>
 

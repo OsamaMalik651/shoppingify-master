@@ -3,7 +3,7 @@ import Input from '../Input'
 import DropDown from '../DropDown'
 import Button from '../Button'
 
-const AddItem = () => {
+const AddItem = ({ onCancelButtonClick }) => {
 
     const handleSubmit = (event) => {
 
@@ -21,8 +21,8 @@ const AddItem = () => {
                     <DropDown title="Category" />
                 </form>
                 <div className='flex gap-7 justify-center flex-1 max-h-48'>
-                    <Button secondary>Cancel</Button>
-                    <Button primary>Save</Button>
+                    <Button secondary onClick={onCancelButtonClick}>Cancel</Button>
+                    <Button primary onClick={onCancelButtonClick}>Save</Button>
                 </div>
             </div>
         </div>

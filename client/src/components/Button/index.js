@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { twMerge } from 'tailwind-merge';
 
 
-const Button = ({ children, primary, secondary, danger, info, rest }) => {
+const Button = ({ children, primary, secondary, danger, info, onClick, rest }) => {
     const classes = twMerge(classNames('flex items-center h-fit px-6 py-5 rounded-xl text-base font-bold cursor-pointer', {
         'bg-bgOrange text-white': primary,
         'hover:bg-bgHoverGray ': secondary,
@@ -16,6 +16,7 @@ const Button = ({ children, primary, secondary, danger, info, rest }) => {
         <div
             {...rest}
             className={`${classes}`}
+            onClick={onClick}
         >{children}</div>
     )
 }

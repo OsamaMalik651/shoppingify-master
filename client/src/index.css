@@ -5,6 +5,7 @@
 @layer base {
   html {
     font-family: quicksand, system-ui, sans-serif;
+    height: 100%;
   }
 }
 /* body {
@@ -56,7 +57,7 @@ code {
 .shoppingListItem {
   @apply flex justify-between items-center my-3 gap-2 bg-bgLightOrange;
 }
-.shoppingListItem > h1 {
+.shoppingListItem h1 {
   @apply text-black text-lg font-medium flex-1;
 }
 .shoppingListItemCount {
