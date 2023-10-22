@@ -63,12 +63,12 @@ const ItemsPage = () => {
                         <h1><span className='text-highlight'>Shoppingify</span> allows you take your shopping list wherever you go</h1>
                     </div>
                     <div className='flex flex-1 items-start justify-end'>
-                        <div className='bg-white flex flex-1 max-w-[276px] h-14 px-4 rounded-xl items-center shadow-md focus-within:border-2 border-bgOrange'>
+                        <div className='bg-white flex flex-1 max-w-[276px] h-14 px-4 rounded-xl items-center shadow-md focus-within:ring-2 ring-bgOrange'>
                             <MdSearch className='w-6 h-6 text-iconBlack' />
                             <input
                                 type="text"
                                 placeholder='search item'
-                                className='flex flex-1 px-2 h-full bg-transparent outline-none placeholder-placeholderGray text-sm font-medium'
+                                className='flex flex-1 px-2 h-full bg-transparent outline-none placeholder-placeholderGray text-sm font-medium border-none ring-0 focus:ring-0 focus:ring-offset-0 focus:outline-none'
                                 value={searchTerm}
                                 onChange={handleSearchTerm}
                             />

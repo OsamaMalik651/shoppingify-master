@@ -42,7 +42,7 @@ const DropDown = ({ title }) => {
             <div className="h-[62px] p-1 border-2 border-[#BDBDBD] rounded-xl outline-none focus-within:border-bgOrange flex item-center justify-center bg-white">
                 {!selectedCategory ? <input
                     type="text"
-                    className="flex flex-1 rounded outline-none px-2"
+                    className="flex flex-1 rounded outline-none px-2 border-none ring-0 focus:ring-0"
                     placeholder="Enter a category"
                     value={categoryInput}
                     onChange={(e) => handleCategoryInput(e.target.value)}
