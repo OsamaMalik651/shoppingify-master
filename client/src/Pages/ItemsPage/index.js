@@ -1,24 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Item from '../../components/Item'
 import { MdSearch } from "react-icons/md";
 import ShoppingList from '../../components/ShoppingList';
 import AddItem from '../../components/AddItem';
+import ItemDetails from '../../components/ItemDetails';
 
 const ItemsPage = () => {
     const [searchTerm, setSearchTerm] = useState('');
-    const [showAddItem, setShowAddItem] = useState(false);
-    const [showShoppingList, setShowShoppingList] = useState(true);
+    const [selected, setSelected] = useState('shoppingList');
     const [shoppingListEditMode, setShoppingListEditMode] = useState(false);
 
-    const handleShowAddItemComponent = () => {
-        setShowAddItem(!showAddItem);
-        setShowShoppingList(!showShoppingList)
+    const handleShowShoppingListComponent = () => {
+        setSelected('shoppingList')
+    }
+    const handleShowAddItemComponent = (e) => {
+        e === true ? setSelected('addItem') : handleShowShoppingListComponent();
+    }
+    const handleShowItemDetailsComponent = (e) => {
+        e === true ? setSelected('itemDetails') : handleShowShoppingListComponent();
     }
 
     const onItemAddClick = () => {
-        setShoppingListEditMode(true)
-        setShowShoppingList(true)
-        setShowAddItem(false)
+        // function to add item to list
+        console.log("onItemAddClick Function ran")
     }
 
     const items = [
@@ -46,7 +50,7 @@ const ItemsPage = () => {
                 <div className='flex flex-wrap gap-4 '>
                     {item.items.map((listItem,) => {
                         return (
-                            <Item key={listItem} name={listItem} onClick={onItemAddClick} />
+                            <Item key={listItem} name={listItem} onAddButtonClick={onItemAddClick} onItemNameClick={handleShowItemDetailsComponent} />
                         )
                     })}
                 </div>
@@ -55,7 +59,7 @@ const ItemsPage = () => {
     });
 
     return (
-        <div className='bg-slate-700 flex flex-1 '>
+        <div className='flex flex-1'>
             <div className='flex flex-1 flex-col gap-12 ps-20 pe-14 py-7 bg-pageBackground '>
                 {/* Heading Div */}
                 <div className='flex justify-between py-2'>
@@ -80,14 +84,15 @@ const ItemsPage = () => {
                 </div>
             </div>
             <div className=' max-w-[390px] flex flex-col basis-1/3' >
-                {showShoppingList && <ShoppingList
+                {selected === 'shoppingList' && <ShoppingList
                     shoppingList={{}}
                     onAddItemClick={handleShowAddItemComponent}
                     shoppingListEditMode={shoppingListEditMode}
                     handleShoppingListEditMode={handleShoppingListEditMode}
 
                 />}
-                {showAddItem && <AddItem onCancelButtonClick={handleShowAddItemComponent} />}
+                {selected === 'addItem' && <AddItem onCancelButtonClick={handleShowAddItemComponent} />}
+                {selected === 'itemDetails' && <ItemDetails item={{}} handleShowItemDetailsComponent={handleShowItemDetailsComponent} />}
             </div>
         </div>
 

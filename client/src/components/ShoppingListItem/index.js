@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MdDeleteOutline, MdRemove, MdOutlineAdd } from "react-icons/md";
 
 
@@ -13,6 +13,9 @@ const ShoppingListItem = ({ item, edit, isShoppingListEditMode }) => {
     const handleEditItem = () => {
         isShoppingListEditMode && setIsEditItem(!isEditItem)
     }
+    useEffect(() => {
+        isShoppingListEditMode === false && setIsEditItem(false)
+    }, [isShoppingListEditMode])
 
     return (
         <div className='shoppingListItem' >

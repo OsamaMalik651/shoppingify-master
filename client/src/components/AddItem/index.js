@@ -21,7 +21,7 @@ const AddItem = ({ onCancelButtonClick }) => {
                     <DropDown title="Category" />
                 </form>
                 <div className='flex gap-7 justify-center flex-1 max-h-48'>
-                    <Button secondary onClick={onCancelButtonClick}>Cancel</Button>
+                    <Button secondary onClick={() => onCancelButtonClick(false)}>Cancel</Button>
                     <Button primary onClick={onCancelButtonClick}>Save</Button>
                 </div>
             </div>

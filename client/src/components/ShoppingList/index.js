@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { ReactComponent as BottleIcon } from "../../assets/bottle.svg";
 import { ReactComponent as ShoppingCart } from "../../assets/shoppingCart.svg";
 
 
 import ShoppingListItem from "../ShoppingListItem";
-import { MdEdit, MdModeEditOutline } from "react-icons/md";
+import { MdEdit } from "react-icons/md";
 
 const ShoppingList = ({ onAddItemClick, shoppingListEditMode, handleShoppingListEditMode }) => {
     const rows = [];
@@ -49,7 +49,7 @@ const ShoppingList = ({ onAddItemClick, shoppingListEditMode, handleShoppingList
                         </span>
                         <button
                             className="bg-white text-iconBlack text-sm font-bold  py-[10px] h-10 w-[120px] rounded-xl"
-                            onClick={onAddItemClick}
+                            onClick={() => onAddItemClick(true)}
                         >
                             Add item
                         </button>
@@ -87,7 +87,7 @@ const ShoppingList = ({ onAddItemClick, shoppingListEditMode, handleShoppingList
                     `}
                 >
                     <input
-                        className="flex flex-1 border-none rounded-xl px-[18px] outline-none active"
+                        className="flex flex-1 rounded-xl px-[18px] active border-none ring-0 focus:ring-0 focus:ring-offset-0 focus:outline-none"
                         type="text"
                         placeholder="Enter List name"
                         disabled={!shoppingListEditMode}
