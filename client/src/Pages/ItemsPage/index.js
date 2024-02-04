@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Item from '../../components/Item'
 import { MdSearch } from "react-icons/md";
-import ShoppingList from '../../components/ShoppingList';
+
 import AddItem from '../../components/AddItem';
 import ItemDetails from '../../components/ItemDetails';
+import ShoppingListComponent from '../../components/ShoppingListComponent';
 
 const ItemsPage = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -84,7 +85,7 @@ const ItemsPage = () => {
                 </div>
             </div>
             <div className=' max-w-[390px] flex flex-col basis-1/3' >
-                {selected === 'shoppingList' && <ShoppingList
+                {selected === 'shoppingList' && <ShoppingListComponent
                     shoppingList={{}}
                     onAddItemClick={handleShowAddItemComponent}
                     shoppingListEditMode={shoppingListEditMode}

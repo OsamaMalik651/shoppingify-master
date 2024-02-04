@@ -1,12 +1,10 @@
 import React from "react";
 import { ReactComponent as BottleIcon } from "../../assets/bottle.svg";
 import { ReactComponent as ShoppingCart } from "../../assets/shoppingCart.svg";
-
-
 import ShoppingListItem from "../ShoppingListItem";
 import { MdEdit } from "react-icons/md";
 
-const ShoppingList = ({ onAddItemClick, shoppingListEditMode, handleShoppingListEditMode }) => {
+const ShoppingListComponent = ({ onAddItemClick, shoppingListEditMode, handleShoppingListEditMode }) => {
     const rows = [];
     let lastCategory = null;
     var shoppingList = [
@@ -106,4 +104,4 @@ const ShoppingList = ({ onAddItemClick, shoppingListEditMode, handleShoppingList
     );
 };
 
-export default ShoppingList;
+export default ShoppingListComponent;
