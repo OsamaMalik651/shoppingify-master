@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import ListItem from '../../components/ListItem';
+import { Outlet } from 'react-router-dom';
 
 
 const HistoryPage = () => {
@@ -30,7 +31,7 @@ const HistoryPage = () => {
     },
     ];
     // data from backend will be received as this function's output
-    var groupedShoppingList = shoppingLists.reduce((group, shoppingList) => {
+    const groupedShoppingList = shoppingLists.reduce((group, shoppingList) => {
         const groupDate = `${shoppingList.createdOn.getMonth()}-${shoppingList.createdOn.getFullYear()}`;
         if (!group[groupDate]) {
             group[groupDate] = [];
@@ -40,15 +41,15 @@ const HistoryPage = () => {
     }, {});
 
     var renderedShoppingLists = Object.keys(groupedShoppingList).map((key) => {
-        var shoppingListGroup = groupedShoppingList[key];
-        var groupTitle = new Date(shoppingListGroup[0].createdOn).toLocaleDateString('en-us', { month: 'short', year: 'numeric' });
-        return (<div key={key} className='flex flex-1 flex-col gap-4'>
+        const shoppingListGroup = groupedShoppingList[key];
+        const groupTitle = new Date(shoppingListGroup[0].createdOn).toLocaleDateString('en-us', { month: 'short', year: 'numeric' });
+        return (<div key={key} className='flex flex-col gap-4'>
             <div className='text-xs font-medium'>
                 {groupTitle}
             </div>
             <div className='flex flex-col gap-7'>
                 {shoppingListGroup.map((shoppingList) => {
-                    return <ListItem shoppingList={shoppingList} />
+                    return <ListItem shoppingList={shoppingList} key={shoppingList.id} />
                 })}
             </div>
         </div>
@@ -57,15 +58,15 @@ const HistoryPage = () => {
     return (
         <div className='flex flex-1'>
             <div className='flex flex-1 flex-col gap-12 ps-20 pe-14 py-7 bg-pageBackground'>
-                <div className='text-[26px] max-w-[450px] font-medium'>
+                {/* <div className='text-[26px] max-w-[450px] font-medium'>
                     <h1>Shopping History</h1>
                 </div>
-                <div className='flex flex-1 flex-col flex-wrap gap-12'>
+                <div className='flex flex-1 flex-col gap-16 flex-wrap'>
                     {renderedShoppingLists}
-                </div>
+                </div> */}
+                <Outlet context={renderedShoppingLists} />
             </div>
             <div className=' max-w-[390px] flex flex-col basis-1/3' ></div>
-
         </div>
     )
 }

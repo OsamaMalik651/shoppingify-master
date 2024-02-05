@@ -3,7 +3,7 @@ import { MdOutlineEventNote } from "react-icons/md";
 import { MdKeyboardArrowRight } from "react-icons/md";
 const ListItem = ({ shoppingList }) => {
     return (
-        <div className='ps-5 pe-1 py-2 flex items-stretch h-16 max-w-4xl bg-white text-base rounded-lg shadow-md' key={shoppingList.id}>
+        <div className='ps-5 pe-1 py-2 flex items-stretch h-16 max-w-4xl bg-white text-base rounded-lg shadow-md' >
             <div className='flex flex-1 items-center justify-between'>
                 <div className="text-base font-medium flex-1">{shoppingList.title}</div>
                 <div className="flex flex-1 gap-5 justify-end items-end">

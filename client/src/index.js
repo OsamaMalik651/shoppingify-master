@@ -10,6 +10,8 @@ import {
 import ItemsPage from './Pages/ItemsPage';
 import HistoryPage from './Pages/HistoryPage';
 import StatisticsPage from './Pages/StatisticsPage';
+import ShoppingLIsts from './components/ShoppingLists/ShoppingLIsts';
+import ShoppingListDetails from './components/ShoppingListDetails/ShoppingListDetails';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -19,7 +21,10 @@ root.render(
     <Routes>
       <Route path="/" element={<App />} >
         <Route index element={<ItemsPage />} exact />
-        <Route path="history" element={<HistoryPage />} />
+        <Route path="history" element={<HistoryPage />}>
+          <Route index element={<ShoppingLIsts />} />
+          <Route path=":id" element={<ShoppingListDetails />} />
+        </Route>
         <Route path="statistics" element={<StatisticsPage />} />
       </Route>
     </Routes>
