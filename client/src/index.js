@@ -10,7 +10,7 @@ import {
 import ItemsPage from './Pages/ItemsPage';
 import HistoryPage from './Pages/HistoryPage';
 import StatisticsPage from './Pages/StatisticsPage';
-import ShoppingLIsts from './components/ShoppingLists/ShoppingLIsts';
+import ShoppingLists from './components/ShoppingLists/ShoppingLists';
 import ShoppingListDetails from './components/ShoppingListDetails/ShoppingListDetails';
 
 
@@ -22,7 +22,7 @@ root.render(
       <Route path="/" element={<App />} >
         <Route index element={<ItemsPage />} exact />
         <Route path="history" element={<HistoryPage />}>
-          <Route index element={<ShoppingLIsts />} />
+          <Route index element={<ShoppingLists />} />
           <Route path=":id" element={<ShoppingListDetails />} />
         </Route>
         <Route path="statistics" element={<StatisticsPage />} />

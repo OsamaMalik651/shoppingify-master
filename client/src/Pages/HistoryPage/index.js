@@ -58,12 +58,6 @@ const HistoryPage = () => {
     return (
         <div className='flex flex-1'>
             <div className='flex flex-1 flex-col gap-12 ps-20 pe-14 py-7 bg-pageBackground'>
-                {/* <div className='text-[26px] max-w-[450px] font-medium'>
-                    <h1>Shopping History</h1>
-                </div>
-                <div className='flex flex-1 flex-col gap-16 flex-wrap'>
-                    {renderedShoppingLists}
-                </div> */}
                 <Outlet context={renderedShoppingLists} />
             </div>
             <div className=' max-w-[390px] flex flex-col basis-1/3' ></div>
